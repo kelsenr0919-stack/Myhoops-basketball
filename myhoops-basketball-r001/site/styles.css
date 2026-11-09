@@ -1,0 +1,27 @@
+/* STUDENT EDIT: THEME. Change one color, save, refresh and check readability. */
+:root { --ink: #203149; --paper: #f7f9fc; --accent: #164c73; --card: #ffffff; }
+/* BASE: border-box includes padding/border in widths; line-height helps reading. */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.6; color: var(--ink); background: var(--paper); }
+.wrap { width: min(100% - 2rem, 64rem); margin-inline: auto; padding-block: 1rem; }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.15; }
+h2 { line-height: 1.25; }
+a { color: var(--accent); text-underline-offset: 0.2em; }
+/* NAVIGATION: flex-wrap keeps links usable when the window is narrow. */
+nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+nav a[aria-current="page"] { font-weight: 700; }
+.brand { font-weight: 700; }
+.button { display: inline-block; padding: 0.65rem 1rem; background: var(--accent); color: white; border-radius: 0.5rem; }
+/* STUDENT EDIT: LAYOUT. Padding is inside a card; gap is between cards. */
+.hero { padding-block: 1rem; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.card { padding: 1.25rem; border: 1px solid #b9cbd9; border-radius: 1rem; background: var(--card); }
+figure { margin-inline: 0; }
+img { display: block; max-width: 100%; height: auto; border-radius: 1rem; }
+figcaption { margin-top: 0.5rem; }
+/* ACCESSIBILITY: visible keyboard focus and a skip link. Keep these. */
+:focus-visible { outline: 3px solid #9b4200; outline-offset: 4px; }
+.skip-link { position: absolute; left: 1rem; top: -5rem; background: white; padding: 0.5rem; }
+.skip-link:focus { top: 0.5rem; }
+/* NARROW SCREEN: test by resizing the browser. Cards stack instead of shrinking. */
+@media (max-width: 600px) { .cards { grid-template-columns: 1fr; } }
